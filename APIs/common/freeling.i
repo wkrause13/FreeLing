@@ -461,15 +461,15 @@ class word : public std::list<freeling::analysis> {
       unsigned long get_span_finish() const;
 
       /// get in_dict
-      bool found_in_dict() const;
+      /// bool found_in_dict() const;
       /// set in_dict
-      void set_found_in_dict(bool);
+      /// void set_found_in_dict(bool);
       /// check if there is any retokenizable analysis
       bool has_retokenizable() const;
       /// mark word as having definitive analysis
       void lock_analysis();
       /// check if word is marked as having definitive analysis
-      bool is_locked() const;
+      /// bool is_locked() const;
 
       /// add an alternative to the alternatives list
       void add_alternative(const std::wstring &, int);

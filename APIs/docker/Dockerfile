@@ -7,7 +7,7 @@ RUN locale-gen en_US.UTF-8 && \
                        libboost-thread1.54.0 && \
     apt-get install -y libicu-dev libboost-regex-dev libboost-system-dev \
                        libboost-program-options-dev libboost-thread-dev \
-                       zlib1g-dev &&\
+                       zlib1g-dev python3-dev swig &&\
     cd /tmp && \
     wget --progress=dot:giga https://storage.googleapis.com/freeling/freeling-4.0.tar.gz && \
     tar xvzf freeling-4.0.tar.gz && \
@@ -17,6 +17,10 @@ RUN locale-gen en_US.UTF-8 && \
     ./configure && \
     make && \
     make install && \
+    cd /tmp/FreeLing/APIs/python && \
+    make && \
+    mkdir /root/freeling && \
+    mv /tmp/FreeLing/APIs/python /root/freeling && \
     rm -rf /tmp/FreeLing && \
     apt-get --purge -y remove build-essential libicu-dev \
             libboost-regex-dev libboost-system-dev \
@@ -29,4 +33,3 @@ RUN locale-gen en_US.UTF-8 && \
 WORKDIR /root
 
 EXPOSE 50005
-CMD echo 'Hello world' | analyze -f en.cfg | grep -c 'world world NN 1'
