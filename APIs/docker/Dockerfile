@@ -1,6 +1,4 @@
 FROM ubuntu:14.04
-MAINTAINER padro@cs.upc.edu
-
 RUN locale-gen en_US.UTF-8 && \
     apt-get update -q && \
     apt-get install -y build-essential automake autoconf libtool wget \
@@ -11,15 +9,15 @@ RUN locale-gen en_US.UTF-8 && \
                        libboost-program-options-dev libboost-thread-dev \
                        zlib1g-dev &&\
     cd /tmp && \
-    wget --progress=dot:giga https://github.com/TALP-UPC/FreeLing/releases/download/4.0/FreeLing-4.0.tar.gz && \
-    tar xvzf FreeLing-4.0.tar.gz && \
-    rm -rf FreeLing-4.0.tar.gz && \
-    cd /tmp/FreeLing-4.0 && \
+    wget --progress=dot:giga https://storage.googleapis.com/freeling/freeling-4.0.tar.gz && \
+    tar xvzf freeling-4.0.tar.gz && \
+    rm -rf freeling-4.0.tar.gz && \
+    cd /tmp/FreeLing && \
     autoreconf --install && \
     ./configure && \
     make && \
     make install && \
-    rm -rf /tmp/FreeLing-4.0 && \
+    rm -rf /tmp/FreeLing && \
     apt-get --purge -y remove build-essential libicu-dev \
             libboost-regex-dev libboost-system-dev \
             libboost-program-options-dev libboost-thread-dev zlib1g-dev\
