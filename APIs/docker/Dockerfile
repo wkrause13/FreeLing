@@ -9,7 +9,7 @@ RUN locale-gen en_US.UTF-8 && \
                        libboost-program-options-dev libboost-thread-dev \
                        zlib1g-dev python3-dev swig &&\
     cd /tmp && \
-    wget --progress=dot:giga http://wkrause.mynetgear.com:9999/owncloud/index.php/s/hotg6Bwu7yNDJyW/download && \
+    wget --progress=dot:giga http://wkrause.mynetgear.com:9999/owncloud/remote.php/webdav/langliter/freeling-4.0.tar.gz && \
     tar xvzf freeling-4.0.tar.gz && \
     rm -rf freeling-4.0.tar.gz && \
     cd /tmp/FreeLing && \
